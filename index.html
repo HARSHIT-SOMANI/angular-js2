@@ -1,0 +1,27 @@
+<!DOCTYPE html>  
+<html ng-app="app">  
+    <!-- The “ng-app” keyword is used to denote that this application should be considered as an angular js application. Any name can be given to this application. Anything that starts with the prefix ‘ng’ is known as a directive.    -->
+<head>  
+    <meta charset="utf 8">
+    <title>Guru99</title>     
+</head>  
+<body>
+
+<h1 ng-controller="HelloWorldCtrl1">{{message1}}</h1>
+<!-- (step#2) -->
+<!--The controller is what is used to hold the business logic. In the h1 tag, we want to access the controller, which will have the logic to display “HelloWorld”, so we can say, in this tag we want to access the controller named “HelloWorldCtrl”. -->
+<!-- What is important to note that we are defining a controller method called ‘HelloWorldCtrl’ -->
+<!-- The ng-controller directive is a keyword defined in AngularJS (step#2) and is used to define controllers in your application. Here in our application, we have used the ng-controller keyword to define a controller named ‘HelloWorldCtrl’. The actual logic for the controller will be created in (step#5). -->
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<!-- The “script tag” is used to reference the angular.js script which has all the necessary functionality for angular js. Without this reference, if we try to use any AngularJS functions, they will not work. -->
+<script>  
+    //(step#5)
+    var app1 = angular.module('app',[]);//from ng-app
+    app1.controller("HelloWorldCtrl1", function($scope) {  
+    $scope.message1="Hello World1" 
+    } )
+    //We are creating a “function” which will be called when our code calls this controller. The $scope object is a special object in AngularJS which is a global object used within Angular.js. The $scope object is used to manage the data between the controller and the view.
+</script> 
+
+</body>  
+</html>
