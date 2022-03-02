@@ -7,18 +7,20 @@
 </head>
 <body>
 <h1> Guru99 Global Event</h1>
-<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<!-- <script src="https://code.angularjs.org/1.6.9/angular.js"></script> -->
 <!-- or -->
 <!-- <script src="lib/angular.js"></script> -->
 <!-- The angular.js is our main file which was downloaded from the angularJS site and kept in our lib folder. -->
-<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+<!-- <script src="https://code.angularjs.org/1.6.9/angular-route.js"></script> -->
 <!-- This route file is necessary in order to make use of the functionalities of having multiple routes and views. This file can be downloaded from the angularJS website. -->
-
+<!-- <script src="https://code.angularjs.org/1.5.9/angular.min.js"></script> -->
+<script src="https://code.angularjs.org/1.6.9/angular-route.min.js"></script>
 <script src="lib/app.js"></script>
 <!-- The app.js file will contain our code for the controllers -->
 <script src="lib/bootstrap.js"></script>
 <!-- The bootstrap.js file is used to supplement the bootstrap.cs file to add bootstrap functionality to our web application -->
-<script src="lib/jquery-1.11.3.min.js"></script>
+<!-- <script src="lib/jquery-1.11.3.min.js"></script> -->
 <!-- The jquery file will be used to add DOM manipulation functionality to our site. -->
 
 <div ng-app="DemoApp" ng-controller="DemoController">
@@ -42,16 +44,20 @@
 		<option>{{Topicselect.option2}}</option>
 	</select>
 </div>
+
 <div ng-app="DemoApp2" >
-    <ul><li><a href="#!NewEvent"> Add New Event</a></li>
-        <li><a href="#!DisplayEvent"> Display Event</a></li>
+    <ul><li><a href="#/NewEvent"> Add New Event</a></li>
+        <li><a href="#/DisplayEvent"> Display Event</a></li>
     </ul>
     <div ng-view></div>
-    </div>
+</div>
 <script>
     var appviews1 = angular.module('DemoApp2',["ngRoute"]);
     console.log('inside demoapp2');
-    appviews1.config(function($routeProvider){
+    console.log('appviews1 is');
+    console.log(appviews1);
+    appviews1.config(['$routeProvider',function($routeProvider){
+            //config is used when we want a process to start even before the app starts running
             console.log('inside demoapp2.2');
             $routeProvider.
             when("/NewEvent",{
@@ -65,7 +71,7 @@
             otherwise ({
                 redirectTo: '/DisplayEvent'
             });
-        });
+        }]);
     appviews1.controller("AddEventController", function($scope){
             console.log('AddEventController');
             $scope.message = "This is to Add a new Event";});
